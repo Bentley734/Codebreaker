@@ -1,0 +1,11 @@
+return {
+  summary = "Game-aware CodeBreaker cheats and editors for all eleven Gen 1-3 games.",
+  author = "Bentley734; original GameShark compatibility runtime by goofwear",
+  tags = { "tool", "codebreaker", "cheats", "gen1", "gen2", "gen3", "1025dex" },
+  differences = {
+    added = { "All eleven supported games", "Per-game cheat filtering", "Native GB/GBC catch, Dex and EXP controls", "Ruby/Sapphire Hoenn destinations" },
+    changed = { "1025Dex One Hit KO / Infinite HP compatibility", "Gen 3 doubles HP/PP and Burn Foe", "Ruby/Sapphire Quick Daycare Egg" },
+    known = { "Automated engine checks; Android device testing pending", "Do not enable GameShark or Action Replay alongside CodeBreaker" }
+  },
+  compat = { engine = ">=0.3.54 <0.4.0", modApi = 2 },
+}

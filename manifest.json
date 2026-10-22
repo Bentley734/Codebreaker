@@ -1,0 +1,38 @@
+{
+  "id": "firered_codebreaker",
+  "name": "CodeBreaker",
+  "version": "0.7.4",
+  "api": 2,
+  "entry": "main.lua",
+  "profile": "overhaul",
+  "category": "TOOL",
+  "game_version": ">=0.3.54 <0.4.0",
+  "games": [
+    "red",
+    "blue",
+    "yellow",
+    "gold",
+    "silver",
+    "crystal",
+    "firered",
+    "leafgreen",
+    "ruby",
+    "sapphire",
+    "emerald"
+  ],
+  "priority": 500,
+  "dependencies": [],
+  "optional_dependencies": [
+    "1025dex@>=1.2.21",
+    "firered_complete_dex@>=1.1.2"
+  ],
+  "conflicts": [
+    "GameShark",
+    "firered_action_replay"
+  ],
+  "description": "Game-aware cheat suite for all eleven Gen 1-3 games, with native menus, wild controls, item/move/stat editors and title-specific extras.",
+  "github": "Bentley734/Codebreaker",
+  "permissions": [
+    "engine_internals"
+  ]
+}

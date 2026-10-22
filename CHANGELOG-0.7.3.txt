@@ -1,0 +1,11 @@
+CodeBreaker 0.7.3 — Frontier legends
+
+Add Emerald-only FRONTIER LEGENDS toggle, OFF by default. When enabled,
+restricted legendary species pass both the Battle Frontier reception check
+and the party picker. Normal species bans return immediately when disabled.
+Other entry rules and Battle Factory rental selection remain unchanged.
+Saved settings use the existing CodeBreaker toggle persistence.
+
+Regression checks cover both entry paths, all seven facility IDs, both level
+modes, turning the cheat off again, and unsupported-game fallthrough.
+Previous Mega/alternate-form spawn fixes are retained.

@@ -1,0 +1,708 @@
+# v0.7.4 — Damage-hook compatibility and cheat regressions
+
+- Restore One Hit KO and incoming-move Infinite HP with 1025Dex's terminal damage formula, independent of hook registration order.
+- Preserve blocked, missed, immune, failed and zero-damage results; only amplify damaging player-to-enemy hits.
+- Refill Gen 3 HP/PP on both active player slots and the cloned battle party. Preserve eggs and bad eggs.
+- Apply Burn Foe to both living, present opponents in doubles without overwriting existing statuses.
+- Fix Quick Daycare Egg in Ruby/Sapphire through the native daycare-policy boundary, preserving compatibility and pending eggs.
+- Add all-eleven-game full-entrypoint regressions in both Lua runtimes and actual 1025Dex/native-engine damage integration checks.
+- Publish the full mod source and portable regression tools in the repository alongside the release package.
+
+## v0.7.3 — Frontier Legends
+
+- Allow restricted legendary species at Emerald's Battle Frontier reception and party picker when enabled.
+- Preserve other facility rules and Factory rentals; restore species bans when disabled.
+
+## v0.7.2 — Gen 3 Mega and alternate-form wild picker
+
+- List all 364 forms registered by 1025Dex 1.2.21 in the Gen 3 wild picker.
+- Keep the selected form's internal species slot for Battle Now and Wild Pick.
+- Selecting a base species clears the prior form; National-number spawn calls retain base-species behavior.
+- Preserve form selection across menu reopening and saved settings.
+- Verified registry reload, form stats/moves/cries, and production selection/dispatch in all five Gen 3 games using engine fixtures. Existing eleven-game registry checks pass; graphical playthroughs remain unverified.
+
+## v0.7.0 — All eleven games
+
+- Enable Red, Blue, Yellow, Gold, Silver, Crystal, Ruby and Sapphire alongside FR/LG/Emerald.
+- Filter menu entries and saved effects by game; reject unsupported exported toggles.
+- Add native GB/GBC 100% catch, Seen/Caught All and 1X–10X EXP controls.
+- Fix Gen 1/2 Infinite PP forward references and heal all non-egg party slots.
+- Use Ruby/Sapphire Hoenn heal locations and Battle Tower; keep Emerald-only features separate.
+- Preserve the engine's native shiny/Spinda renderer and select the session's breeding policy.
+- Refresh persistent Gen 3 wrappers on game changes and bypass inactive controllers.
+- Hide obsolete Pay Day repair; keep item cheats in Give Item.
+- Retain the existing internal mod ID, 1025Dex integration and original Gen 3 tools.
+
+## 0.6.1 - Menu priority order
+
+- Put Teleport, PC Anywhere, Wild Pokemon, Wall Walk and No Battles first in that order.
+- Arrange remaining controls by likely use, with items, EXP and common battle cheats near the top.
+- Preserve all game-specific controls and existing settings.
+
+## 0.6.0 — Hardware cheat collection
+
+- Add PC Anywhere, Fast Egg Hatch and Quick Daycare Egg.
+- Add selectable 1X–10X EXP and Party EXP distribution.
+- Add Always Obey, Fast Walk, Bike Indoors and Bike Over Water.
+- Add Escape Any Battle and Always Your Turn, including double battles.
+- Add Emerald Max Battle Points and event island unlocks with tickets.
+- Preserve saved victory/event status and bypass local battle cheats in link battles.
+- Pass Lua syntax, focused effect/menu regression and ZIP integrity checks. Full gameplay testing remains pending.
+
+## 0.5.5 — Emerald trainer rebattles
+
+- Add Emerald-only REBATTLE TRAINERS, bypassing defeated checks only during trainer battle commands.
+- Use original teams for Match Call rematch commands without waiting for readiness.
+- Preserve saved victory flags and restore normal checks when disabled.
+
+## 0.5.4 — Instant VS Seeker
+
+- Add INSTANT VS SEEKER for FireRed and LeafGreen, keeping the live battery fully charged before and after each input update.
+- Preserve normal trainer response chances, rematch expiry and item ownership requirements.
+- Hide the toggle in Emerald, which has no VS Seeker.
+
+## 0.5.3 â€” Looping menus
+
+- Up at the first row jumps to the last; down at the last jumps to the first.
+- Apply wrapping to every native Gen 3 menu, including numeric value lists.
+
+## 0.5.2 â€” Cleaner menus
+
+- Remove the input legend from native Gen 3 menus.
+
+## 0.5.1 â€” Menu paging
+
+- Left/right scroll seven rows in every native Gen 3 menu, including CHEATS.
+- Reserve A for actions and B for back/cancel; Start no longer backs out.
+- Replace horizontal quantity/stat edits with A-confirmed numeric value lists.
+- Preserve the selected row and viewport when confirming or cancelling values.
+- Show list position and control hints; retain shoulder-button fast navigation.
+
+## 0.5.0 â€” Gen 3 / Emerald port
+
+- Support Emerald and correctly recognize LeafGreen without save.generation.
+- Read badge IDs from the active game's constants; no FR badge flags in Emerald.
+- Add nineteen Hoenn teleport destinations from the native heal-location pack.
+- Unlock the native National Dex flag/variable as part of Seen/Caught All.
+- Keep exact selected encounters through the 1025Dex battle policy.
+- Exclude unused native question-mark slots from the standalone species picker.
+- Use registered internal species slots for National selection and saved picks.
+- Fill missing extended gender ratios from 1025Dex species extras; support gender/nature independently of shiny controls.
+- Use native Emerald shiny palettes and version-specific ROM picture/palette tables. Extended sprites continue through 1025Dex.
+- Retain native menus, categorized item actions, wall modes and existing cheat controls.
+
+## 0.4.3
+
+- Keep custom screen factories local to the native FireRed menu, avoiding unsupported Gen 3 screens registrations.
+
+# Changelog
+
+## [0.4.2] - 2026-09-25
+
+- Changed WALL WALK from an ON/OFF toggle to OFF, SAFE, and UNSAFE modes.
+- SAFE restores CodeBreaker's original non-boundary collision bypass.
+- UNSAFE retains the newer GameShark forced-step full noclip behavior.
+- Existing saves with WALL WALK enabled migrate to UNSAFE; new and disabled
+  saves remain OFF.
+
+## [0.4.1] - 2026-09-25
+
+- Removed the redundant Master Ball x999, Rare Candy x999, and PP Up x999
+  toggles from the main CHEATS menu.
+- Removed their continuous refill effects so previously saved toggles cannot
+  keep running invisibly.
+- Master Ball, Rare Candy, and PP Up remain available through GIVE ITEM.
+
+## [0.4.0] - 2026-09-25 â€” CodeBreaker hybrid
+
+- Merged GameShark Compatibility 0.9.11's current FireRed runtime, native menu,
+  full noclip, wild customization, and shiny rendering fixes into CodeBreaker.
+- Preserved the `firered_codebreaker` mod identity and the single CHEATS entry.
+- Preserved CodeBreaker's categorized Give Item submenus and corrected vitamin,
+  battle-item, held-item, berry, TM/HM, key-item, and medicine grouping.
+- Added live-roster species discovery through #1025 for FireRed Complete Dex.
+- Kept SEEN ALL and CAUGHT ALL as separate safe one-shot actions.
+- Added FireRed No Recharge, Safari Balls, Safari Time, and Catch Trainer Pokemon.
+- Added save migration for CodeBreaker 0.3.x settings and prevented duplicate
+  rows when an old GameShark-labelled row is already present.
+
+## [0.9.11] - 2026-09-22
+
+- Correct the little-endian decoding of FireRed's BGR555 palette entries. The old byte order prevented the visible cached sprite colors from matching, even when the stored PokÃ©mon was truly shiny.
+- Verified against the supplied FireRed ROM: Mew's front sprite has 589 indexed pixels in the seven colors that change for its shiny form.
+
+## [0.9.10] - 2026-09-22
+
+- Use the cached FireRed sprite that G1RDeluxe actually draws as the first choice for shiny recoloring; reject a conversion when it changes no opaque pixels.
+- Check the PokÃ©mon currently open in the summary rather than a previous battle's PokÃ©mon, and draw a sparkle icon when the game's icon asset is missing.
+
+## [0.9.9] - 2026-09-22
+
+- Fix FireRed shiny sprite setup failing with `attempt to call a nil value`: the input hook now captures the sprite installer through an earlier local declaration.
+
+## [0.9.8] - 2026-09-22
+
+### Fixed
+- Apply FireRed shiny identity using the live `battle.started` event rather
+  than depending on an early `Battle.start` module wrapper.
+- Use the active battle event payload to select the shiny sprite.
+- Show any remaining diagnostic error when selecting SHINY CHECK.
+
+
+## [0.9.7] - 2026-09-22
+
+### Fixed
+- Remove unsupported `package.loaded` access from FireRed sprite and menu
+  callbacks in the mod sandbox.
+- Add an in-menu SHINY CHECK status to locate the remaining failure if a live
+  Android test still shows a normal-colored PokÃ©mon.
+
+
+## [0.9.6] - 2026-09-22
+
+### Fixed
+- Wrap `Pokemon.frontPic` and `Pokemon.backPic`, which the FireRed main
+  battle renderer calls directly, to show shiny colors in battle.
+- Use the same palette lookup for the shiny summary portrait.
+
+
+## [0.9.5] - 2026-09-22
+
+### Fixed
+- Apply FireRed SHINY settings to wild encounters with WILD PICK off.
+- Finalize shiny identity through both battle creation and battle.started.
+- Recolor battle sprites using palette values from the supplied FireRed ROM,
+  without bundling the ROM or PokÃ©mon image assets.
+
+
+## [0.9.4] - 2026-09-22
+
+### Fixed
+- Preserve the FireRed wild identity request through `Battle.start` and finalize
+  the live enemy PokÃ©mon in the battle start callback.
+- Use FireRed's known shiny palette table as a validated fallback when the
+  ROM is available but its pointer header cannot be found.
+- Document the original ROM dependency for authentic shiny colors.
+
+
+## [0.9.3] - 2026-09-22
+
+### Fixed
+- Fixed FireRed forced shiny state on the actual live wild battler.
+- Forced shiny/non-shiny PID and OT IDs are now finalized immediately after
+  FireRed constructs `Battle.getState().enemy.mon`.
+- Caught forced-shiny PokÃ©mon retain the shiny state.
+- Added FireRed shiny battle-palette rendering. GameShark discovers the ROM's
+  original `gMonShinyPaletteTable` from the GF ROM header and uses it for
+  battlers that the engine reports as shiny.
+- No Action Replay source code is used by this implementation.
+
+
+## [0.9.2] - 2026-09-21
+
+### Fixed
+- Fixed FireRed Wild Pokemon `SHINY = YES`.
+- Forced shininess is now encoded into a valid Gen 3 Personality Value before
+  FireRed constructs the battle Pokemon, rather than only setting a boolean
+  after the battle intro has already begun.
+- The generated PID uses the live FireRed Trainer ID and Secret ID and keeps
+  selected Nature and Gender compatible with the shiny result.
+- `SHINY = NO` now generates a guaranteed non-shiny PID.
+- MAX IVs are applied before FireRed builds the wild battler.
+- Caught forced-shiny Pokemon retain authentic Gen 3 shininess because their PID
+  remains shiny against the player's OT IDs.
+
+
+## [0.9.1] - 2026-09-20
+
+### Fixed
+- Reworked FireRed Walk Through Walls into true full noclip.
+- In-map movement now uses native `Player.scriptStep()` before normal collision
+  logic, covering blockers that do not resolve as a simple `"blocked"` result.
+- Real map connections are still attempted first when stepping outside map
+  bounds; failed edges then use the noclip fallback.
+- Added a versioned `Player.tryMove` wrapper so hot-updating GameShark cannot
+  leave an older movement wrapper active in Gen1Recomp's loaded modules.
+
+
+## [0.9.0] - 2026-09-20
+
+### Fixed
+- Completed FireRed Walk Through Walls based on video testing.
+- The remaining blocked area was an outer map boundary rather than ordinary
+  tile/entity collision.
+- Native map connections and warps are still attempted first.
+- If FireRed returns `blocked, "bounds"` with no valid connection, GameShark
+  now uses the native `Player.scriptStep()` fallback to cross the edge.
+- This provides full noclip behavior while preserving real route connections.
+
+
+## [0.8.9] - 2026-09-20
+
+### Fixed
+- Completed FireRed Walk Through Walls after video testing showed v0.8.8 was
+  only partial.
+- Kept the persistent native `Collision.canEnter()` bypass.
+- Added a player-only `Player.tryMove()` fallback: when FireRed still returns
+  `"blocked"` and Walk Through Walls is enabled, GameShark uses the native
+  `Player.scriptStep()` routine to force a one-cell collision-free step.
+- Map-boundary failures remain protected.
+
+
+## [0.8.8] - 2026-09-20
+
+### Fixed
+- Corrected the FireRed Walk Through Walls implementation from v0.8.7.
+- Gen1Recomp's Game3 `input.step` hook fires before the actual FireRed movement
+  update and its `next()` is a no-op, so v0.8.7 restored collision too early.
+- GameShark now installs a persistent wrapper around
+  `src.core.game3.collision.canEnter()`.
+- The wrapper dynamically honors the WALK THRU WALLS toggle and only bypasses
+  blocked checks originating from the live player.
+- Map bounds remain protected; ordinary NPC/script/pathfinding collision remains
+  native when it is not a player-originating movement check.
+
+
+## [0.8.7] - 2026-09-20
+
+### Fixed
+- Fixed Walk Through Walls on FireRed.
+- FireRed's native `Player.tryMove()` bypasses the compatibility
+  `movement.collision` hook and calls `game3.collision.canEnter()` directly.
+- GameShark now temporarily bypasses non-boundary Game3 collision failures for
+  the live player while Walk Through Walls is enabled.
+- The native collision function is restored after every FireRed logic tick.
+- Map-boundary collision remains enabled to avoid walking outside the loaded map.
+
+
+## [0.8.6] - 2026-09-20
+
+### Fixed
+- Fixed FireRed toggles changing only the GameShark menu state.
+- FireRed continuous cheats now write the live `Runtime.getSession()` state.
+- Fixed FireRed Max Money, Max Coins, Master Ball Ã—99, Rare Candy Ã—99,
+  PP Up Ã—99, Infinite HP, Infinite PP, All Badges and Complete Dex.
+- All Badges also sets FireRed badge flags 0x820 through 0x827.
+- Added explicit Game3 battler-side handling for Infinite HP and One Hit KO.
+- FireRed Wild Picker now always carries its selection into the constructed
+  wild battler for identity/stat finalization.
+
+
+## [0.8.5] - 2026-09-20
+
+### Fixed
+- Replaced the FireRed legacy-screen adapter with a fully native Game3 menu.
+- The FireRed START-menu callback now directly pushes the native GameShark menu.
+- Added native FireRed submenus for Wild Pokemon, Teleport, Give Item, Teach
+  Move, IV/EV editing, and Friendship.
+- Gen 1 and Gen 2 menu paths remain unchanged.
+
+
+## [0.8.4] - 2026-09-20
+
+### Fixed
+- Fixed the remaining FireRed **GAMESHARK â†’ A does nothing** problem.
+- FireRed no longer invokes the Gen 1/2 `mod.ui.ListMenu.new()` constructor
+  while building GameShark screens.
+- Added a capture adapter that reuses GameShark's own screen definitions and
+  callbacks while presenting them through the native FireRed/Game3 modal UI.
+- Added error logging if a FireRed GameShark screen factory itself fails.
+
+### Manifest
+- Declared `engine_internals`, because the FireRed UI adapter directly requires
+  current Gen1Recomp Game3 UI modules.
+
+
+## [0.8.3] - 2026-09-20
+
+### Fixed
+- Fixed FireRed being misdetected as the Gen 1/2 UI path after selecting the
+  GAMESHARK row.
+- FireRed detection now checks the active `GameVersion` for `firered`.
+- FireRed GameShark screens now push directly to `src.ui.game3.stack`, the
+  native modal UI stack used by the FireRed recomp.
+- Added a stable `gameshark` START-menu row id and native FireRed insertion
+  before the `save` row.
+- Gen 1 and Gen 2 keep their previous menu path and behavior.
+
+
+## [0.8.2] - 2026-09-20
+
+### Fixed
+- Fixed FireRed START-menu **GAMESHARK** row appearing but doing nothing when A
+  was pressed.
+- Added a native Game3 240Ã—160 menu host for the GameShark main menu and all
+  GameShark submenus.
+- The FireRed hook now prefers the live Game3 object supplied to `onSelect`
+  instead of relying only on the object captured while the START-menu rows were
+  constructed.
+- Gen 1 and Gen 2 menu behavior is unchanged.
+
+
+## [0.8.1] - 2026-09-20
+
+### Fixed
+- Fixed FireRed **GAMESHARK** start-menu row doing nothing when A was pressed.
+- Added a Gen 3 modal-stack bridge for GameShark's registered shared UI screens.
+- Adapted shared menu `update`/`draw` methods to FireRed's module-style stack calls.
+- Prevented the underlying FireRed START menu from processing the same input while a GameShark screen is active.
+
+
+## [0.8.0] - 2026-09-20
+
+### Added
+- Added `gen3` / Pokemon FireRed support.
+- Added FireRed **Easy Catch** and **Complete Dex** cheats.
+- Added Gen 3 Wild Pokemon **Nature** and **Max IV** controls.
+- Added FireRed-compatible Give Item and unrestricted Teach Move catalogs.
+- Added FireRed Friendship editing.
+- Added a Gen 3 six-stat **IV / EV editor**.
+- Added FireRed Kanto and Sevii teleport destinations using the public warp API.
+
+### Compatibility
+- Existing shared cheats now handle FireRed save/battle models where applicable.
+- Gen 1/2-only entries are hidden on FireRed rather than executing incompatible paths.
+- FireRed item/move catalogs are enumerated through numeric Gen3Compat lookups because
+  the public data facades intentionally do not expose `pairs()` enumeration.
+
+
+## [0.7.10] - 2026-09-15
+
+### Fixed
+- Fixed **Safari Ball** on Gen 1 by refilling the active Safari counter after
+  each engine update/ball throw.
+- Fixed **Safari Time** on Gen 1 by refilling the step counter after movement;
+  Red no longer visibly counts down while the cheat is enabled.
+- Fixed **Steal Trainer** on Pokemon Red by installing the Gen 1 trainer-catch
+  wrapper directly from `battle.started`, rather than depending only on a
+  particular `game.stack.states` layout.
+- Trainer catches explicitly preserve `afterQueue = "finish"` and resolve with
+  a **win** result after the caught Pokemon is stored, preventing the trainer
+  NPC from immediately re-engaging.
+
+### Compatibility
+- Safari fixes use the shared Gen 1 save structure and therefore cover Red,
+  Blue and Yellow.
+- Gold, Silver and Crystal continue to use the existing Gen 2 trainer-catch
+  path.
+
+
+## [0.7.9] - 2026-09-12
+
+### Added
+- Added **FRIENDSHIP** editor.
+- Gold, Silver and Crystal: choose any non-Egg party Pokemon and set friendship
+  directly to **255 (MAX)** or **0 (ZERO)**.
+- Pokemon Yellow: edits the original starter Pikachu friendship byte through
+  `save.pikachuHappiness`, with MAX and ZERO options.
+- Displays the current friendship value in the Pokemon picker and action menu.
+- Eggs are protected from friendship editing because Gen 2 uses their separate
+  hatch-step state instead.
+
+### Compatibility
+- Friendship is detected by capability/generation:
+  - Gen 2 uses each party Pokemon's `happiness` field.
+  - Yellow uses the presence of `save.pikachuHappiness`.
+  - Red and Blue do not show the Friendship menu.
+- No hard-coded Gold/Silver/Crystal allow-list was added, preserving strict
+  Gen 2 lint compatibility.
+
+
+## [0.7.8] - 2026-09-02
+
+### Added
+- Added **CELEBI EVENT** for Pokemon Crystal.
+- Mirrors the original `010B3CBE` GS Ball event activation by setting Crystal's
+  native `sGSBallFlag` representation to the available state.
+- Uses capability detection (`GS_BALL` in the active game's item data), so the
+  action appears only where the original event actually exists.
+
+### Compatibility
+- Gold and Silver remain supported by the rest of GameShark, but do not expose
+  the Crystal-only GS Ball event action because their original games do not
+  contain that event.
+
+
+## [0.7.7] - 2026-08-24
+
+### Fixed
+- Removed hard-coded `version == "gold"` Gen-2 checks that triggered MK409.
+- Gen-2 branches now key off `save.generation == 2`, covering Gold, Silver, and Crystal.
+- Fixed the main-menu Wild Pokemon ON/OFF alignment by moving the submenu arrow into the left label and keeping the right field exactly `ON` or `OFF`.
+- `mod.exports.game()` now reports the actual running game version instead of reporting every Gen-2 game as Gold.
+
+### Compatibility
+- Declared support remains `gen1 + gen2`: Red, Blue, Yellow, Gold, Silver, Crystal.
+
+
+## [0.7.6] - 2026-08-22
+
+### Added
+- Added **TEACH MOVE** for Red, Blue, Yellow, Gold and Silver.
+- Choose a party Pokemon, then choose any move from the running game's complete
+  move table.
+- Bypasses species learnsets, TM/HM compatibility and normal move restrictions.
+- Adds directly to a free slot when fewer than four moves are known.
+- When all four slots are occupied, lets the player choose exactly which move
+  slot to overwrite.
+- Allows HM moves to be assigned or overwritten.
+- Newly assigned moves begin at full base PP.
+- Prevents duplicate move entries; selecting an already-known move restores PP.
+- Move catalog is generated from `game.data.moves`, so Gen 1 and Gen 2 use their
+  own native move definitions.
+
+
+## [0.7.5] - 2026-08-21
+
+### Fixed
+- Fixed Pokemon Gold crashing immediately when selecting **GIVE ITEM**.
+- Give Item now filters Gen-2 item data to canonical symbolic item records.
+- Removed unsafe raw mixed-type item-ID comparison from the item-list sorter.
+- Added defensive validation before opening the quantity picker.
+
+
+## [0.7.4] - 2026-08-21
+
+### Added
+- Added **GIVE ITEM** for Red, Blue, Yellow, Gold and Silver.
+- Item picker is generated from the running game's native `game.data.items`.
+- Added quantity selection from 1-99 for stackable items.
+- Existing stacks are increased up to the native quantity cap of 99.
+- Gen-2 Key Items and HMs are treated as unique items.
+- Maintains `bagOrder` so newly given items appear immediately in the bag.
+- Gen-2 pocket placement follows the item's native pocket definition.
+
+### UI
+- Shortened the cramped Gen-1 main-menu row from `WILD POKEMON` to
+  `WILD PKMN`, leaving visible spacing before `ON/OFF >`.
+- The Wild Pokemon submenu still uses the full `WILD POKEMON` title.
+
+
+## [0.7.3] - 2026-08-20
+
+### Fixed
+- Fixed the v0.7.2 **Teleport** regression on Red/Blue/Yellow that could leave
+  a blank/white screen after selecting a destination.
+- Full state-stack clearing is now Gen-2-only; Gen 1 preserves its overworld
+  state while retaining the previously working teleport path.
+
+### UI / Verification
+- Added a **RESULT STATS** section to the DV/EV editor showing the effective
+  calculated HP/ATK/DEF/SPD/Special values immediately.
+- Makes authentic Gen-1 Stat EXP behavior easier to verify at low levels.
+
+
+## [0.7.2] - 2026-08-20
+
+### Fixed
+- Teleport now completely closes nested START / MODS / GameShark UI overlays
+  before executing the warp.
+- Fixes Gold arriving at the selected destination with one or more menus still
+  visible.
+
+### Verified
+- Gen 1 DV/EV editor calculation is working as intended. Gen-1 EV values are
+  authentic 16-bit Stat EXP values and use the original square-root-based stat
+  formula.
+
+
+## [0.7.1] - 2026-08-20
+
+### Fixed
+- Gold Teleport now closes the GameShark menu before the actual warp occurs.
+- DV/EV edits now refresh the Pokemon's displayed stats through Gen1Recomp's
+  native Gen-1/Gen-2 stat calculators.
+- Uses `game.data.pokemon` for the canonical species/base-stat definition.
+- Existing v0.7.0 DV/EV changes are recalculated when the Pokemon editor opens.
+
+### Added
+- Added **RECALC STATS** to the DV/EV editor for explicit verification/repair.
+
+
+## [0.7.0] - 2026-08-20
+
+### Added
+- Added **TELEPORT** for Red, Blue, Yellow, Gold and Silver.
+- Teleport uses Gen1Recomp's public world warp API and ROM-extracted
+  destination coordinates/spawns; no Fly requirement or visited-town flag edit.
+- Added standalone **DV / EV EDITOR** for party Pokemon in Gen 1 and Gen 2.
+- Added per-stat DV editing (0-15) with derived HP DV display.
+- Added arbitrary 16-bit Stat EXP editing (0-65,535) through a hexadecimal
+  digit editor.
+- Added MAX ALL DVS, MAX ALL EVS and ZERO ALL EVS actions.
+- Recalculates Pokemon stats immediately after edits.
+- Gen 2 DV changes refresh the Pokemon's DV-derived gender and shiny state.
+
+### Compatibility
+- Supports Gen 1: Red, Blue, Yellow.
+- Supports Gen 2: Gold and Silver.
+- No dependency on FAFF0x's mod or any other DV/EV editor.
+
+
+## [0.6.1] - 2026-08-19
+
+### Fixed
+- Fixed **BATTLE NOW** doing nothing in Pokemon Gold.
+- Gold Instant Battle now uses Gen1Recomp's supported Gen-2 `start_battle`
+  script verb through `mod.world:queueScript()` instead of the Gen-1-only
+  `startWildBattle()` API.
+- Gold Instant Battle now works from indoor and outdoor maps, provided the
+  player is in a valid overworld state and has a healthy party.
+- Red, Blue and Yellow continue using the Gen-1 `startWildBattle()` service.
+- Gold Gender/Shiny selections remain wired into the Mon-construction path.
+
+
+## [0.6.0] - 2026-08-19
+
+### Added
+- Added **BATTLE NOW** to the Wild Pokemon setup screen.
+- Starts an immediate wild battle with the selected Pokemon and selected
+  level through Gen1Recomp's public `mod.world:startWildBattle()` API.
+- Supports Red, Blue, Yellow, and Gold.
+- Gold Instant Battles honor the existing Gender and Shiny selections.
+- If `LEVEL = AUTO`, choosing BATTLE NOW opens the level selector rather than
+  inventing an arbitrary battle level.
+
+### UI
+- Shortened `ENABLE WILD PICK` to `WILD PICK` to prevent left/right text
+  overlap on the 160px Game Boy menu.
+- Genderless Gold Pokemon display `N/A` in the narrow value column.
+- Preserved cursor/scroll behavior from previous releases.
+
+
+## [0.5.9] - 2026-08-18
+
+### Added
+- Added **Wild Level** selection with `AUTO` plus levels 1-100.
+- `AUTO` preserves the level produced by the game's normal encounter table.
+- Manual level selection overrides only the resulting wild PokÃ©mon level.
+- Added a dedicated **WILD POKEMON** setup submenu.
+
+### UI
+- Consolidated Wild Pick configuration into one self-explanatory screen:
+  Enable, PokÃ©mon, Level, Gender, and Shiny.
+- Main GameShark menu now shows one `WILD POKEMON  ON/OFF >` entry instead of
+  multiple scattered Wild Pick controls.
+- Gen 2-only Gender and Shiny settings appear only on Gold.
+- Added cursor/scroll memory for both the Wild PokÃ©mon setup and level picker.
+- Existing `wild_pick` effect/save state remains compatible.
+
+
+## [0.5.8] - 2026-08-17
+
+### Fixed
+- Reworked **SLOT 1 HP** into a true **INFINITE HP** cheat.
+- Incoming move damage to the player's active Pokemon is now zeroed at the
+  `battle.damage` hook before HP loss/faint processing.
+- Live battle HP is refilled in addition to the saved party copy.
+- Added a post-engine-step refill for residual/status HP writes.
+- Fix targets Red, Blue and Yellow through their shared Gen 1 BattleState path,
+  while retaining Gold support.
+- Preserved the existing `party_hp` effect id so saved toggle state migrates
+  automatically.
+
+
+## [0.5.7] - 2026-08-17
+
+### Fixed
+- Fixed **STEAL TRAINER** on Red, Blue and Yellow causing an extremely long
+  PokÃ© Ball wobble/shake animation.
+- Removed the Gen 1 forced `catch.rate -> true,255` path.
+- Trainer captures now use a deterministic successful `catchAttempt` with
+  the normal three-wobble caught animation.
+- Keeps the v0.5.5 `win` conversion after capture so the PokÃ©mon is retained
+  and the trainer remains defeated.
+- Gold behavior is unchanged.
+
+
+## [0.5.6] - 2026-08-17
+
+### Added
+- Added **INFINITE PP** for Red, Blue, Yellow and Gold.
+- Player move PP is restored to its true maximum in battle and never runs out.
+- Infinite PP does not refill the opponent's moves.
+- Added **PP UP x99**, which maintains 99 normal PP Up items in the bag.
+
+
+## [0.5.5] - 2026-08-17
+
+### Fixed
+- Fixed **STEAL TRAINER** on Red, Blue and Yellow so a successful stolen-Pokemon
+  capture resolves the trainer encounter as a win after the normal capture
+  storage flow.
+- The captured Pokemon is retained and the trainer NPC is marked defeated,
+  preventing the same trainer from immediately starting the battle again.
+- Restores the battle's original trainer identity before teardown.
+
+### Added
+- Added **MAX COINS** for both Gen 1 and Gen 2.
+- Keeps the Game Corner Coin Case at the native maximum of 9,999 while enabled.
+
+
+## [0.5.4] - 2026-08-15
+
+### Fixed
+- Fixed Gold Wild Pick shinies on Gen1Recomp 0.1.93 by writing persistent,
+  authentic Gen-2 shiny DVs instead of relying only on the hook return value.
+- Keeps stored shiny/gender identity synchronized with the generated DVs.
+
+### Added
+- Added Gen-2-only **PAY DAY FIX**, enabled by default, to restore Gold's
+  missing Pay Day money accumulation/payout behavior.
+
+### Compatibility
+- Removed the `<0.2.0` engine-version ceiling.
+- New supported engine expression: `>=0.1.79 || =0.0.0-dev`.
+- Author remains `goofwear`; GitHub updater remains `goofwear/gameshark`.
+
+
+## [0.5.3] - 2026-08-14
+
+### Fixed
+- Gold ALL BADGES now creates exactly 16 badge entries instead of 32.
+- Cleans duplicate numeric badge aliases written by v0.5.0-v0.5.2.
+- Removed `growthRates` and `tmhmMoves` from the Wild Pokemon picker.
+- Preserved the GameShark-menu cursor/scroll position after changes.
+- Preserved the Pokemon-picker cursor/scroll position after selection.
+
+
+## [0.5.2] - 2026-08-12
+
+### Added
+- Gold Wild Pick gender choice: Random / Male / Female.
+- Gold Wild Pick shiny choice: Random / Yes / No.
+- Genderless Pokemon detection; genderless species cannot be forced male/female.
+- Runtime-only compatibility for Battle Art Voxel Fork first-person movement.
+
+### Compatibility
+- `WALL WALK` now relaxes Battle Art's separate first-person free-movement
+  collision checks when that mod is already installed.
+- Battle Art remains completely optional and is not a dependency or optional
+  dependency in the manifest.
+- Standard Gen1Recomp `movement.collision` behavior remains unchanged.
+
+
+## [0.5.1] - 2026-08-12
+
+### Fixed
+- Fixed One-Hit KO on Pokemon Gold / Gen 2 by identifying the active player
+  and enemy Pokemon through `ctx.battle.player` and `ctx.battle.enemy`.
+- Fixed Burn Foe on Pokemon Gold / Gen 2 by using Gold's native `burn`
+  status id instead of Gen 1's `BRN`.
+
+### Added
+- Added `"github": "goofwear/gameshark"` to `manifest.json` so Gen1Recomp can
+  check GitHub releases for updates and older versions.
+
+
+## 0.5.0 - 2026-08-12
+
+- Added Pokemon Gold / Gen 2 support.
+- One package now targets `gen1` and `gen2`.
+- Added automatic generation detection.
+- Added Gold-specific money and badge handling.
+- Added Gold trainer-capture handling through the Gen 2 battle screen.
+- Shared collision, encounter, damage, catching, item, HP and Pokemon-picker behavior across generations.
+- Safari cheats are hidden on Gold.
+- Changed author to **goofwear**.
+- Raised packaged-release target to Gen1Recomp 0.1.79+ while retaining compatible `0.0.0-dev` builds.
